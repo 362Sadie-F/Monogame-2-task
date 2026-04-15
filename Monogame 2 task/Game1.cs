@@ -8,6 +8,10 @@ namespace Monogame_2_task
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        Texture2D circleTexture;
+        Texture2D recTexture;
+        Rectangle window;
+        Rectangle waterRind;
 
         public Game1()
         {
@@ -18,7 +22,13 @@ namespace Monogame_2_task
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            window = new Rectangle(0,0,800,600);
+            _graphics.PreferredBackBufferWidth = window.Width;
+            _graphics.PreferredBackBufferHeight = window.Height;
+            _graphics.ApplyChanges();
+            
+            waterRind = new Rectangle(0,0,window.Width,30);
+
 
             base.Initialize();
         }
@@ -26,8 +36,9 @@ namespace Monogame_2_task
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            circleTexture = Content.Load<Texture2D>("circle");
+            recTexture = Content.Load<Texture2D>("rectangle");
 
-            // TODO: use this.Content to load your game content here
         }
 
         protected override void Update(GameTime gameTime)
@@ -42,9 +53,13 @@ namespace Monogame_2_task
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.LavenderBlush);
+            _spriteBatch.Begin();
+            _spriteBatch.Draw(recTexture, waterRind, Color.DarkGreen);
 
-            // TODO: Add your drawing code here
+
+            _spriteBatch.End();
+            
 
             base.Draw(gameTime);
         }
