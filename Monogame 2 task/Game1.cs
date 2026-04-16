@@ -19,11 +19,7 @@ namespace Monogame_2_task
         Rectangle waterSeed3;
         Rectangle waterSeed4;
         Rectangle waterSeed5;
-        Rectangle waterSeed6;
-        Rectangle waterSeed7;
-        Rectangle waterSeed8;
-        Rectangle waterSeed9;
-        Rectangle waterSeed10;
+        SpriteFont asciiArt;
 
 
         public Game1()
@@ -43,16 +39,12 @@ namespace Monogame_2_task
             waterSkin = new Rectangle(0,0,window.Width,40);
             waterMelon = new Rectangle(0,0,window.Width, window.Height);
             waterRind = new Rectangle(0,30,window.Width,30);
-            waterSeed1 = new Rectangle(30, 80, 55, 90);
-            waterSeed2 = new Rectangle(110, 110, 55, 90);
-            waterSeed3 = new Rectangle(250, 140, 55, 90);
-            waterSeed4 = new Rectangle(380, 170, 55, 90);
-            waterSeed5 = new Rectangle(420, 486, 55, 90);
-            waterSeed6 = new Rectangle(500, 170, 55, 90);
-            waterSeed7 = new Rectangle(590, 378, 55, 90);
-            waterSeed8 = new Rectangle(380, 300, 55, 90);
-            waterSeed9 = new Rectangle(590, 110, 55, 90);
-            waterSeed10 = new Rectangle(30, 300, 55, 90);
+            waterSeed1 = new Rectangle(50, 80, 75, 110); //top left corner
+            waterSeed2 = new Rectangle(360, 80, 75, 110); //top middle
+            waterSeed3 = new Rectangle(370, 480, 75, 110); //bottom middle
+            waterSeed4 = new Rectangle(380, 170, 75, 110);
+            waterSeed5 = new Rectangle(698, 80, 75, 110); //top right corner
+            
 
 
             base.Initialize();
@@ -63,6 +55,7 @@ namespace Monogame_2_task
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             circleTexture = Content.Load<Texture2D>("circle");
             recTexture = Content.Load<Texture2D>("rectangle");
+            asciiArt = Content.Load<SpriteFont>("TextFont");
 
         }
 
@@ -88,11 +81,7 @@ namespace Monogame_2_task
             _spriteBatch.Draw(circleTexture, waterSeed3, Color.Black);
             _spriteBatch.Draw(circleTexture, waterSeed4, Color.Black);
             _spriteBatch.Draw(circleTexture, waterSeed5, Color.Black);
-            _spriteBatch.Draw(circleTexture, waterSeed6, Color.Black);
-            _spriteBatch.Draw(circleTexture, waterSeed7, Color.Black);
-            _spriteBatch.Draw(circleTexture, waterSeed8, Color.Black);
-            _spriteBatch.Draw(circleTexture, waterSeed9, Color.Black);
-            _spriteBatch.Draw(circleTexture, waterSeed10, Color.Black);
+            _spriteBatch.DrawString(asciiArt, " /\\_/\\\r\n( o.o )\r\n > ^ <", new Vector2(300,150), Color.Azure);
 
             _spriteBatch.End();
             
